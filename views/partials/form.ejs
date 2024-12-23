@@ -1,0 +1,51 @@
+<body id="body">
+  <form action="/create" method="post">   
+    <div class="contianer d-flex flex-wrap justify-content-center align-items-center my-2 py-2 g-3" style="height: 100%; width: 50%; margin-left: 400px">
+      <h1 class="mt-4 d-flex justify-content-center"> <%= title %> </h1>
+            <div class="col-12">
+                <label for="author_name" class="form-label">Author Name</label>
+                <input type="text" class="form-control" id="authorName" name="authorName" placeholder="Stephen King" value="" required="" fdprocessedid="aoy73s">
+          <div class="invalid-feedback">
+            Valid author name is required.
+          </div>
+        </div>
+
+        <div class="col-12">
+            <label for="email" class="form-label">Email <span class="text-body-secondary">(Optional)</span></label>
+          <input type="email" class="form-control" id="email" name="email" placeholder="you@example.com" fdprocessedid="96cigp">
+          <div class="invalid-feedback">
+            Please enter a valid email address.
+          </div>
+        </div>
+
+        <div class="col-12">
+          <label for="address" class="form-label">Post Title</label>
+          <input type="text" class="form-control" id="title" name="title" placeholder="Enter Post title" required="" fdprocessedid="1i6nhh">
+          <div class="invalid-feedback">
+            Please enter your Post title.
+          </div>
+        </div>
+
+        <div class="col-12">
+            <label for="address" class="form-label">Post Caption</label>
+            <input type="text" class="form-control" id="caption" name="caption" placeholder="Enter Post caption" required="" fdprocessedid="1i6nhh">
+            <div class="invalid-feedback">
+            Please enter your Post caption.
+        </div>
+        </div>
+
+        <div class="col-12">
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Enter Post content</label>
+                <textarea class="form-control" id='text_content' name="text_content" placeholder="Enter Post content" rows="3"></textarea>
+              </div>
+            </div>
+
+        <div class="col-12">
+            <div class="mb-3 d-flex align-items-center justify-content-center">
+                <input type="submit" class="btn" id="submit" name="submit" placeholder="Enter Post content" value="submit" />
+              </div>
+        </div>
+    </form>
+      </div>
+</body>

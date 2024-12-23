@@ -1,0 +1,32 @@
+
+<%- include('partials/header.ejs') %>
+<body id="body">
+    <% if(locals.posts.length==0) { console.log(locals.posts.length) %>
+        <div class=" d-flex mt-5 mb-5 align-items-center justify-content-center">
+        <h1>No Posts Found.</h1>
+        </div>
+    <% } else { %>
+        <% posts.forEach((Post) => { %>
+        
+            <div class=" d-flex flex-row mt-5 mb-5 justify-content-center">
+                <div class="card" style="width: 80%">
+                    <div class="card-body">
+                        <h5 class="card-title"><%= Post.title %> by <%= Post.authorName %></h5>
+                        <h6 class="card-subtitle mb-2 text-body-secondary"><%= Post.caption %></h6>
+                        <p class="card-text"><%= Post.content %></p>
+                        <a href="/update" class="card-link btn btn-small btn" id="btn1">Update</a>
+                        <button class="card-link btn btn-small btn" id="btn2" onclick="deleteUser(Post.title)"> Delete User </button>
+                    </div>
+                </div>
+            </div>
+            <% }) %>
+<script>
+
+    const deleteUser = (name) => {
+        console.log(name);
+        posts = posts.filter(e => e.title !== name);
+    } 
+</script>
+    <% } %>
+</body>
+    <%- include('partials/footer.ejs') %>
