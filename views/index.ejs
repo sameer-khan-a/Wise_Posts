@@ -37,7 +37,7 @@
                     console.log(data.message);
                     const PostElement = document.querySelector(`[data-title="${title}"]`);
                     if (PostElement && PostElement.parentNode) {
-                        PostElement.parentNode.parentNode.remove();
+                        PostElement.parentNode.parentNode.parentNode.remove();
                     } else {
                         console.error(`No element found with data-title="${title}"`);
                     }
