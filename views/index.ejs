@@ -1,32 +1,51 @@
-
 <%- include('partials/header.ejs') %>
 <body id="body">
-    <% if(locals.posts.length==0) { console.log(locals.posts.length) %>
-        <div class=" d-flex mt-5 mb-5 align-items-center justify-content-center">
-        <h1>No Posts Found.</h1>
+    <% if(posts.length === 0) { %>
+        <div class="d-flex mt-5 mb-5 align-items-center justify-content-center">
+            <h1>No Posts Found.</h1>
         </div>
     <% } else { %>
-        <% posts.forEach((Post) => { %>
-        
-            <div class=" d-flex flex-row mt-5 mb-5 justify-content-center">
+        <% posts.forEach(Post => { %>
+            <div class="d-flex flex-row mt-5 mb-5 justify-content-center">
                 <div class="card" style="width: 80%">
                     <div class="card-body">
                         <h5 class="card-title"><%= Post.title %> by <%= Post.authorName %></h5>
-                        <h6 class="card-subtitle mb-2 text-body-secondary"><%= Post.caption %></h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><%= Post.caption %></h6>
                         <p class="card-text"><%= Post.content %></p>
-                        <a href="/update" class="card-link btn btn-small btn" id="btn1">Update</a>
-                        <button class="card-link btn btn-small btn" id="btn2" onclick="deleteUser(Post.title)"> Delete User </button>
+                        <div class="d-flex justify-content-between mt-2">
+                            <a href="/update" class="btn btn-small btn-primary">Update</a>
+                            <button 
+                                class="btn btn-small btn-danger delete-button" 
+                                data-title="<%= Post.title %>"
+                                onclick="deleteUser('<%= Post.title %>')">
+                                Delete
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-            <% }) %>
-<script>
-
-    const deleteUser = (name) => {
-        console.log(name);
-        posts = posts.filter(e => e.title !== name);
-    } 
-</script>
+        <% }) %>
     <% } %>
+
+    <script>
+        const deleteUser = (title) => {
+            if (confirm(`Are you sure you want to delete the Post titled "${title}"?`)) {
+                fetch(`/Posts/${title}`, {
+                    method: 'DELETE',
+                })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    const PostElement = document.querySelector(`[data-title="${title}"]`);
+                    if (PostElement && PostElement.parentNode) {
+                        PostElement.parentNode.parentNode.remove();
+                    } else {
+                        console.error(`No element found with data-title="${title}"`);
+                    }
+                })
+                .catch(error => console.error('Error:', error));
+            }
+        };
+    </script>
 </body>
-    <%- include('partials/footer.ejs') %>
+<%- include('partials/footer.ejs') %>

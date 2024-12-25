@@ -2,12 +2,12 @@ import express from 'express';
 
 const app = new express();
 const port = 3000;
-const posts = [];
+var posts = [];
 
 app.listen(port, () => {
     console.log(`App listening on port ${port}.`)
 })
-
+app.use(express.json());
 app.use(express.urlencoded({extended: true}));
 
 app.use(express.static('public'));
@@ -30,9 +30,17 @@ app.post('/create', (req, res) => {
     res.redirect('/');
 })
 
-app.delete('/', (req, res) => {
-    res.redirect('index.js');
-})
+app.delete('/Posts/:title', (req, res) => {
+    const title = req.params.title;
+    const initialLength = posts.length;
+    posts = posts.filter(post => post.title !== title);
+
+    if (posts.length < initialLength) {
+        res.status(200).json({ message: `Post titled "${title}" deleted.` });
+    } else {
+        res.status(404).json({ message: `Post titled "${title}" not found.` });
+    }
+});
 
 app.get('/update', (req, res) => {
     res.render('update.ejs', {
@@ -43,3 +51,13 @@ app.get('/update', (req, res) => {
 app.put('/update', (req, res) => {
     res.redirect('index.js');
 })
+app.delete('/Posts/:title', (req, res) => {
+    const { title } = req.params;
+    const index = posts.findIndex(post => post.title === title);
+    if (index !== -1) {
+        posts.splice(index, 1);
+        res.json({ message: `Post '${title}' deleted successfully!` });
+    } else {
+        res.status(404).json({ message: `Post '${title}' not found.` });
+    }
+});
