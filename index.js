@@ -1,7 +1,7 @@
 import express from 'express';
 
 const app = new express();
-const port = 3000;
+const port = 3002;
 var posts = [];
 
 app.listen(port, () => {
