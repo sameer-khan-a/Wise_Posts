@@ -42,22 +42,3 @@ app.delete('/Posts/:title', (req, res) => {
     }
 });
 
-app.get('/update', (req, res) => {
-    res.render('update.ejs', {
-        title: 'Update a Post',
-    });
-})
-
-app.put('/update', (req, res) => {
-    res.redirect('index.js');
-})
-app.delete('/Posts/:title', (req, res) => {
-    const { title } = req.params;
-    const index = posts.findIndex(post => post.title === title);
-    if (index !== -1) {
-        posts.splice(index, 1);
-        res.json({ message: `Post '${title}' deleted successfully!` });
-    } else {
-        res.status(404).json({ message: `Post '${title}' not found.` });
-    }
-});
