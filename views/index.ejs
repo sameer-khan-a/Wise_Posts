@@ -9,10 +9,11 @@
             <div class="d-flex flex-row mt-5 mb-5 justify-content-center">
                 <div class="card" style="width: 80%">
                     <div class="card-body">
-                        <h5 class="card-title"><%= Post.title %> by <%= Post.authorName %></h5>
+                        <h5 class="card-title"><%= Post.title %> by <%= Post.author %></h5>
                         <h6 class="card-subtitle mb-2 text-muted"><%= Post.caption %></h6>
-                        <p class="card-text"><%= Post.text_content %></p>
+                        <p class="card-text"><%= Post.content %></p>
                         <div class="d-flex justify-content-between mt-2">
+                            <a class="btn btn-primary edit" href="/posts/<%= Post.id %>">Edit</a>
                             <button 
                                 class="btn btn-small btn-danger delete-button" 
                                 data-title="<%= Post.title %>"

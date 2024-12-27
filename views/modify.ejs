@@ -1,7 +1,4 @@
-
 <%- include('partials/header.ejs') %>
-
-<form action="/api/posts" method="post">   
+      <form method="post" action="/api/posts/<%=post.id%>">
 <%- include('partials/form.ejs') %>
-
 <%- include('partials/footer.ejs') %>
