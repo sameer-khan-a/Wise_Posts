@@ -19,24 +19,31 @@ background-color: darkmagenta;
     box-shadow: 10px 10px 20px rgba(36, 36, 36, 0.5);
 }
 #body {
-    background-color: #FFCCE1;
+    background-color: #FFCCE1; /* Ensure full height for the viewport */
+    margin: 0; /* Remove default margins */
+    box-sizing: border-box; /* Ensure consistent box sizing */
+}
+
+.d-flex.flex-column {
+    margin-top: auto;
+    background-color: #FFCCE1; /* Force the parent container to occupy the full viewport height */
 }
 
 #footer {
-        position: relative;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        height: 10%;
-        text-align: center;
-      
-        position : fixed 200px;
-    width: 100%;
-    background-color: #8b008b90;
-    color: white;
-    margin-top: 30px;
-    border-radius: 0px 30px 0px 30px;
+    background-color: rgba(139, 0, 139, 0.5); /* Footer background with reduced opacity */
+    color: white; /* Footer text color */
+    height: 40px;
+    border-radius: 30px 0px 30px 0px;/* Rounded corners */
+    padding: 0px; /* Add padding for spacing */
+    text-align: center; /* Center align text */
+    position: fixed; /* Make footer fixed */
+    bottom: 0; /* Align footer to the bottom */
+    left: 0; /* Align footer to the left */
+    width: 100%; /* Ensure the footer spans the entire width */
+    z-index: 100; /* Ensure the footer stays on top of other content */
 }
+
+
 #submit1, #submit2 {
     background-color: #8b008b90;
     color: white;

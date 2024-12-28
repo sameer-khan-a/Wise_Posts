@@ -48,15 +48,26 @@ app.post("/api/posts/:id", async (req, res) => {
         `${API_URL}/posts/${req.params.id}`,
         req.body
       );
-      console.log(response.data);
+      // console.log(response.data);
       res.redirect("/");
     } catch (error) {
       res.status(500).json({ message: "Error updating post" });
     }
   });
+  app.get('/api/delete/:id', async (req, res) => {
+    try {
+        const response = await axios.delete(`${API_URL}/posts/${req.params.id}`);
+        // console.log(response.data); // Log the response for debugging
+        res.redirect('/'); // Redirect to home or another page after deletion
+    } catch (error) {
+        console.error('Error deleting post:', error);
+        res.status(500).send('Error deleting post');
+    }
+});
+
   app.post('/api/posts', async (req, res) => {
     const response = await axios.post(`${API_URL}/create`, req.body);
-    console.log(response);
+    // console.log(response);
     res.redirect("/");
   })
         app.listen(port, () => {

@@ -46,7 +46,7 @@ app.post('/create', (req, res) => {
       title: req.body.title,
       content: req.body.content
     }
-    newId+=1;
+    oldId = newId;
     posts.push(newPost);
     res.json(newPost);
 })
@@ -56,15 +56,14 @@ app.get('/posts/:id', (req, res) => {
     console.log(post);
     post?res.json(post):res.status(404).json({error: 'post does not exist'});
   })
-app.delete('/Posts/:title', (req, res) => {
-    const title = req.params.title;
+app.delete('/posts/:id', (req, res) => {
+    const id = parseInt(req.params.id);
     const initialLength = posts.length;
-    posts = posts.filter(post => post.title !== title);
-
+    posts = posts.filter(post => post.id !== id);
     if (posts.length < initialLength) {
-        res.status(200).json({ message: `Post titled "${title}" deleted.` });
+        res.status(200).json(posts);
     } else {
-        res.status(404).json({ message: `Post titled "${title}" not found.` });
+        res.status(404).json({ message: `Post not found.` });
     }
 });
 

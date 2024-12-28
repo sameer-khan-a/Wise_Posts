@@ -1,7 +1,6 @@
 <%- include('partials/header.ejs') %>
 <body id="body">
     <% if(posts.length === 0) { %>
-        <div class="d-flex mt-5 mb-5 align-items-center justify-content-center">
             <h1>No Posts Found.</h1>
         </div>
     <% } else { %>
@@ -13,13 +12,8 @@
                         <h6 class="card-subtitle mb-2 text-muted"><%= Post.caption %></h6>
                         <p class="card-text"><%= Post.content %></p>
                         <div class="d-flex justify-content-between mt-2">
-                            <a class="btn btn-primary edit" href="/posts/<%= Post.id %>">Edit</a>
-                            <button 
-                                class="btn btn-small btn-danger delete-button" 
-                                data-title="<%= Post.title %>"
-                                onclick="deleteUser('<%= Post.title %>')">
-                                Delete
-                            </button>
+                            <a class="btn btn-primary edit-button" href="/posts/<%= Post.id %>">Edit</a>
+                            <a class="btn btn-danger delete-button" href="/api/delete/<%= Post.id %>">Delete</a>
                         </div>
                     </div>
                 </div>
