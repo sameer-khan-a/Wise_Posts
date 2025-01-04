@@ -5,6 +5,10 @@ background-color: darkmagenta;
 #nav-item{
     color: black;
 }
+img {
+    max-width: 450px;
+    max-height: 350px;
+}
 #btn1, #btn2 {
     background-color: #8b008b90;
     color: white;
