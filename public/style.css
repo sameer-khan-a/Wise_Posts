@@ -5,6 +5,8 @@ background-color: darkmagenta;
 .container {
     display: flex;
     justify-content: center;
+    height: 100vh;
+    flex-direction: column;
 }
 #nav-item{
     color: black;
