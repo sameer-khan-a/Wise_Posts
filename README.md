@@ -11,7 +11,7 @@ This application utilizes a user-built Posts API to manage all post-related oper
 
 ## Screenshots
 ### Homepage
-![Homepage](public/home.png)
+![Homepage](public/Home.png)
 
 ### Create Post
 ![Create Post](public/create.png)
