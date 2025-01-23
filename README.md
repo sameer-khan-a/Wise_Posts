@@ -14,10 +14,10 @@ This application utilizes a user-built Posts API to manage all post-related oper
 ![Homepage](public/Home.png)
 
 ### Create Post
-![Create Post](public/create.png)
+![Create Post](public/Create.png)
 
 ### Edit Post
-![Edit Post](public/edit.png)
+![Edit Post](public/Edit.png)
 
 ## How to Run
 1. Clone the repository:
