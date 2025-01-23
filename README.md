@@ -34,13 +34,11 @@ This application utilizes a user-built Posts API to manage all post-related oper
    ```
 4. Start the development server:
    ```bash
-   cd server
-   npm start
+   nodemon server.js
    ```
 5. Start the React application:
    ```bash
-   cd client
-   npm start
+   nodemon index.js
    ```
 
 ## Hosting
