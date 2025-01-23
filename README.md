@@ -11,13 +11,13 @@ This application utilizes a user-built Posts API to manage all post-related oper
 
 ## Screenshots
 ### Homepage
-![Homepage](screenshots/homepage.png)
+![Homepage](public/home.png)
 
 ### Create Post
-![Create Post](screenshots/create_post.png)
+![Create Post](public/create.png)
 
 ### Edit Post
-![Edit Post](screenshots/edit_post.png)
+![Edit Post](public/edit.png)
 
 ## How to Run
 1. Clone the repository:
