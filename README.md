@@ -13,10 +13,10 @@ This application utilizes a user-built Posts API to manage all post-related oper
 ### Homepage
 ![Homepage](public/Home.png)
 
-### Create Post
+### Creating a Post
 ![Create Post](public/Create.png)
 
-### Edit Post
+### Editing a Post
 ![Edit Post](public/Edit.png)
 
 ## How to Run
